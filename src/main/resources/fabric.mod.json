@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "pet-owner",
+  "version": "${version}",
+  "name": "Pet Owner",
+  "description": "Show owner name of a pet",
+  "authors": [
+    "Butukay"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/pet-owner/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "com.butukay.petowner.PetOwner"
+    ],
+    "modmenu" : [
+      "com.butukay.petowner.config.ModMenu"
+    ]
+  },
+  "mixins": [
+    "pet-owner.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.17.1"
+  },
+  "custom": {
+    "modmenu": {
+      "links": { "modmenu.discord": "https://discord.gg/Q6PxYd2WXp" },
+      "badges": [ ],
+      "parent": {
+        "id": "tweaks",
+        "name": "ButukayTweaks",
+        "description": "Butukay's simple tweaks",
+        "icon": "assets/pet-owner/parent-icon.png",
+        "badges": []
+      }
+    }
+  }
+}
