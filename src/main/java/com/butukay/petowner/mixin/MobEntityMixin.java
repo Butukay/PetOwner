@@ -48,40 +48,7 @@ public abstract class MobEntityMixin extends LivingEntity {
     @Inject(method = "interact", at = @At("HEAD"))
     public final void onInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         if (PetOwner.getConfig().getUsageMode().equals(PetOwnerConfig.Mode.CLICK)) {
-
-            List<UUID> ownerIds = PetOwnerUtils.getOwnerIds(this);
-
-            if (ownerIds.isEmpty()) return;
-
-            Text messageText = new TranslatableText("");
-
-            if (ownerIds.size() > 1) {
-                StringBuilder stringBuilder = new StringBuilder();
-
-                for (int i = 0; i < ownerIds.size(); i++) {
-                    UUID ownerId = ownerIds.get(i);
-
-                    if (ownerId == null) return;
-
-                    Optional<String> usernameString = PetOwnerUtils.getNameFromId(ownerId);
-
-                    stringBuilder.append(usernameString.orElse("text.petowner.error"));
-
-                    if (i < ownerIds.size() - 1) {
-                        stringBuilder.append(", ");
-                    }
-
-                    messageText = new TranslatableText("text.petowner.owners", stringBuilder.toString());
-                }
-            } else {
-                UUID ownerId = ownerIds.get(0);
-
-                Optional<String> usernameString = PetOwnerUtils.getNameFromId(ownerId);
-
-                messageText = new TranslatableText("text.petowner.owner", usernameString.isPresent() ? usernameString.get() : new TranslatableText("text.petowner.error"));
-            }
-
-            player.sendMessage(messageText, PetOwner.getConfig().isActionBar());
+            player.sendMessage(PetOwnerUtils.generateUsernameText(this), PetOwner.getConfig().isActionBar());
         }
     }
 

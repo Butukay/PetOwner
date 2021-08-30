@@ -48,6 +48,11 @@ public class ModMenu implements ModMenuApi {
                     .setSaveConsumer(newValue -> PetOwner.getConfig().setShowToggleMessage(newValue))
                     .build());
 
+            settings.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("option.petowner.show-raw-username"), PetOwner.getConfig().isRawUsername())
+                    .setDefaultValue(false)
+                    .setSaveConsumer(newValue -> PetOwner.getConfig().setRawUsername(newValue))
+                    .build());
+
             builder.setSavingRunnable(PetOwnerConfigUtil::saveConfig);
 
             return builder.build();

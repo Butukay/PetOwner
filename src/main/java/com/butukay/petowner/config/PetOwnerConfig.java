@@ -6,6 +6,7 @@ public class PetOwnerConfig {
     private boolean alwaysShown = true;
     private boolean actionBar = true;
     private boolean showToggleMessage = true;
+    private boolean rawUsername = false;
 
     public boolean isEnabled() {
         return enabled;
@@ -45,6 +46,14 @@ public class PetOwnerConfig {
 
     public void setShowToggleMessage(boolean showToggleMessage) {
         this.showToggleMessage = showToggleMessage;
+    }
+
+    public boolean isRawUsername() {
+        return rawUsername;
+    }
+
+    public void setRawUsername(boolean rawUsername) {
+        this.rawUsername = rawUsername;
     }
 
     public enum Mode {

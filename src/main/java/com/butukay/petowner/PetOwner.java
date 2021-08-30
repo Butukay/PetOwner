@@ -26,11 +26,10 @@ public class PetOwner implements ModInitializer {
 
             if (getConfig().getUsageMode() == PetOwnerConfig.Mode.TOGGLE) {
                 while (keyBinding.wasPressed()) {
-
                     toggleStatus = !toggleStatus;
 
                     if (minecraftClient.player != null && getConfig().isShowToggleMessage()) {
-                        minecraftClient.player.sendMessage(new TranslatableText("message.petowner." + (toggleStatus ? "enabled" : "disabled")), getConfig().isActionBar());
+                        minecraftClient.player.sendMessage(new TranslatableText("message.petowner." + (toggleStatus ? "disabled" : "enabled")), getConfig().isActionBar());
                     }
                 }
             }

@@ -3,6 +3,9 @@ package com.butukay.petowner.mixin;
 import com.butukay.petowner.PetOwner;
 import com.butukay.petowner.config.PetOwnerConfig;
 import com.butukay.petowner.utils.PetOwnerUtils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,7 +27,6 @@ import net.minecraft.util.math.Matrix4f;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
 
 @Mixin(EntityRenderer.class)
 public abstract class EntityRendererMixin {
@@ -54,37 +56,29 @@ public abstract class EntityRendererMixin {
 
         if (ownerIds.isEmpty()) return;
 
-        for (int i = 0; i < ownerIds.size(); i++) {
-            UUID ownerId = ownerIds.get(i);
+        Text text = PetOwnerUtils.generateUsernameText(entity);
 
-            if (ownerId == null) return;
+        double d = this.dispatcher.getSquaredDistanceToCamera(entity);
+        @SuppressWarnings("rawtypes") EntityRenderer entityRenderer = (EntityRenderer) (Object) this;
+        if (d <= 4096.0D) {
+            float height = entity.getHeight() + 0.5F;
+            int y = 10;
 
-            Optional<String> usernameString = PetOwnerUtils.getNameFromId(ownerId);
+            matrices.push();
+            matrices.translate(0.0D, height, 0.0D);
+            matrices.multiply(this.dispatcher.getRotation());
+            matrices.scale(-0.025F, -0.025F, 0.025F);
+            Matrix4f matrix4f = matrices.peek().getModel();
+            TextRenderer textRenderer = entityRenderer.getTextRenderer();
+            float x = (float) (-textRenderer.getWidth(text) / 2);
 
-            Text text = new TranslatableText("text.petowner.owner", usernameString.isPresent() ?
-                    usernameString.get() : new TranslatableText("text.petowner.error"));
+            float backgroundOpacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
+            int backgroundColor = (int) (backgroundOpacity * 255.0F) << 24;
 
-            double d = this.dispatcher.getSquaredDistanceToCamera(entity);
-            @SuppressWarnings("rawtypes") EntityRenderer entityRenderer = (EntityRenderer) (Object) this;
-            if (d <= 4096.0D) {
-                float height = entity.getHeight() + 0.5F;
-                int y = 10 + (10 * i);
-                matrices.push();
-                matrices.translate(0.0D, height, 0.0D);
-                matrices.multiply(this.dispatcher.getRotation());
-                matrices.scale(-0.025F, -0.025F, 0.025F);
-                Matrix4f matrix4f = matrices.peek().getModel();
-                TextRenderer textRenderer = entityRenderer.getTextRenderer();
-                float x = (float) (-textRenderer.getWidth(text) / 2);
+            textRenderer.draw(text, x, (float) y, 553648127, false, matrix4f, vertexConsumers, true, backgroundColor, light);
+            textRenderer.draw(text, x, (float) y, -1, false, matrix4f, vertexConsumers, false, 0, light);
 
-                float backgroundOpacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
-                int backgroundColor = (int) (backgroundOpacity * 255.0F) << 24;
-
-                textRenderer.draw(text, x, (float) y, 553648127, false, matrix4f, vertexConsumers, true, backgroundColor, light);
-                textRenderer.draw(text, x, (float) y, -1, false, matrix4f, vertexConsumers, false, 0, light);
-
-                matrices.pop();
-            }
+            matrices.pop();
         }
     }
 }
