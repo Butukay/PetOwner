@@ -13,5 +13,5 @@
   "option.petowner.always-shown": "Shown while not looking on entity",
   "option.petowner.action-bar": "Send message to action bar",
   "option.petowner.show-toggle-message": "Show toggle message",
-  "text.petowner.show-raw-message" : "Show raw username"
+  "text.petowner.show-raw-username" : "Show raw username"
 }

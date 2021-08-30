@@ -13,5 +13,5 @@
   "option.petowner.always-shown": "Показывать владельца не зависимо от взгляда",
   "option.petowner.action-bar": "Отправлять сообщение в action bar",
   "option.petowner.show-toggle-message": "Показывать сообщение о переключении",
-  "text.petowner.show-raw-message" : "Показывать только ник владельца"
+  "text.petowner.show-raw-username" : "Показывать только ник владельца"
 }
