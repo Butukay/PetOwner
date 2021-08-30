@@ -7,6 +7,7 @@ public class PetOwnerConfig {
     private boolean actionBar = true;
     private boolean showToggleMessage = true;
     private boolean rawUsername = false;
+    private int visibleDistance = 16;
 
     public boolean isEnabled() {
         return enabled;
@@ -54,6 +55,14 @@ public class PetOwnerConfig {
 
     public void setRawUsername(boolean rawUsername) {
         this.rawUsername = rawUsername;
+    }
+
+    public int getVisibleDistance() {
+        return visibleDistance;
+    }
+
+    public void setVisibleDistance(int visibleDistance) {
+        this.visibleDistance = visibleDistance;
     }
 
     public enum Mode {

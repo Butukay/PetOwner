@@ -60,7 +60,7 @@ public abstract class EntityRendererMixin {
 
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         @SuppressWarnings("rawtypes") EntityRenderer entityRenderer = (EntityRenderer) (Object) this;
-        if (d <= 4096.0D) {
+        if (Math.sqrt(d) <= PetOwner.getConfig().getVisibleDistance()) {
             float height = entity.getHeight() + 0.5F;
             int y = 10;
 
