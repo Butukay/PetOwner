@@ -1,0 +1,18 @@
+{
+  "key.category.butukay-tweaks": "Butukay Tweaks",
+  "key.petowner.toggle": "Schimba PetOwner",
+  "message.petowner.enabled": "PetOwner se vede",
+  "message.petowner.disabled": "PetOwner nu sevede",
+  "text.petowner.owner": "§6Proprietar: %s",
+  "text.petowner.owners": "§6Proprietari: %s",
+  "text.petowner.error": "§4ERROR",
+  "title.petowner.config": "Setari PetOwner",
+  "category.petowner.settings": "Category.petowner.settings",
+  "option.petowner.enabled": "Aprins",
+  "option.petowner.usage-mode": "Modul de control",
+  "option.petowner.always-shown": "Afisati proprietarul indiferent de vizualizare",
+  "option.petowner.action-bar": "Trimite mesaj in action bar",
+  "option.petowner.show-toggle-message": "Afișați mesajul de comutare",
+  "option.petowner.show-raw-usernam": "Arata doar numele",
+  "option.petowner.visible-distance" : "Distanța maximă la care textul este vizibil (în blocuri)"
+}

@@ -1,0 +1,18 @@
+{
+  "key.category.butukay-tweaks": "Butukay Tweaks",
+  "key.petowner.toggle": "Toggle PetOwner",
+  "message.petowner.enabled" : "Showin PetOwner nametags",
+  "message.petowner.disabled" : "Hidin PetOwner nametags",
+  "text.petowner.owner" : "§6Ownr: %s",
+  "text.petowner.owners" : "§6Ownerz: %s",
+  "text.petowner.error" : "§4ERROR",
+  "title.petowner.config": "PetOwner Config",
+  "category.petowner.settings": "category.petowner.settings",
+  "option.petowner.enabled": "ENABLD",
+  "option.petowner.usage-mode": "Usage mode",
+  "option.petowner.always-shown": "Shown while not lookin on entity",
+  "option.petowner.action-bar": "Send mesage 2 acshun bar",
+  "option.petowner.show-toggle-message": "Show toggle mesage",
+  "option.petowner.show-raw-usernam": "Show only nicknaem",
+  "option.petowner.visible-distance" : "Nametag visibel distanec (in blockz)"
+}

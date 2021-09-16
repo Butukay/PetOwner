@@ -1,0 +1,18 @@
+{
+  "key.category.butukay-tweaks": "Butukay Tweaks",
+  "key.petowner.toggle": "להחליף PetOwner",
+  "message.petowner.enabled": "PetOwner לְהַצִיג",
+  "message.petowner.disabled": "PetOwner לא מוצג",
+  "text.petowner.owner": "§בעל6: %s",
+  "text.petowner.owners": "§בעלים6: %s",
+  "text.petowner.error": "§4ERROR",
+  "title.petowner.config": "הגדרות PetOwner",
+  "category.petowner.settings": "category.petowner.settings",
+  "option.petowner.enabled": "עובד",
+  "option.petowner.usage-mode": "מצב שליטה",
+  "option.petowner.always-shown": "להציג את הבעלים ללא קשר למבט",
+  "option.petowner.action-bar": "action bar לשלוח הודעה ל",
+  "option.petowner.show-toggle-message": "הצג הודעת מתג",
+  "option.petowner.show-raw-usernam": "להציג רק כינוי",
+  "option.petowner.visible-distance" : "המרחק המרבי שבו הטקסט גלוי (בבלוקים)"
+}

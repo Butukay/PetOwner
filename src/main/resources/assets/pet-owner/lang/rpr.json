@@ -1,0 +1,18 @@
+{
+  "key.category.butukay-tweaks": "Butukay Tweaks",
+  "key.petowner.toggle": "Переключить PetOwner",
+  "message.petowner.enabled": "PetOwner виденъ",
+  "message.petowner.disabled": "PetOwner скрытъ",
+  "text.petowner.owner": "§6Владѣлецъ: %s",
+  "text.petowner.owners": "§6Владѣльцы: %s",
+  "text.petowner.error": "§4ERROR",
+  "title.petowner.config": "Настройки PetOwner",
+  "category.petowner.settings": "category.petowner.settings",
+  "option.petowner.enabled": "Включенъ",
+  "option.petowner.usage-mode": "Режимъ управленія",
+  "option.petowner.always-shown": "Показывать владѣльца не зависимо отъ взгляда",
+  "option.petowner.action-bar": "Отправлять сообщеніе въ action bar",
+  "option.petowner.show-toggle-message": "Показывать сообщеніе о переключеніи",
+  "option.petowner.show-raw-usernam": "Показывать только псевдонимъ",
+  "option.petowner.visible-distance" : "Максимально разстояніе при которомъ виденъ текстъ (въ блокахъ)"
+}
