@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.passive.HorseBaseEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -61,7 +62,7 @@ public class PetOwnerUtils {
         return new ArrayList<>();
     }
 
-    public static Text generateUsernameText(Entity entity) {
+    public static Text generateUsernameText(Entity entity, PlayerEntity sender) {
 
         List<UUID> ownerIds = PetOwnerUtils.getOwnerIds(entity);
 
@@ -89,6 +90,14 @@ public class PetOwnerUtils {
             UUID ownerId = ownerIds.get(0);
 
             ownersString = PetOwnerUtils.getNameFromId(ownerId).orElse("§4ERROR");
+        }
+
+        if (sender != null) {
+            if (!PetOwner.getConfig().isClickOnOwnedPet()) {
+                if (ownersString.equals(sender.getEntityName())) {
+                    return null;
+                }
+            }
         }
 
         if (PetOwner.getConfig().isRawUsername()) {

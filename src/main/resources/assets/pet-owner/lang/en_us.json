@@ -14,5 +14,6 @@
   "option.petowner.action-bar": "Send message to action bar",
   "option.petowner.show-toggle-message": "Show toggle message",
   "option.petowner.show-raw-username" : "Show raw username",
-  "option.petowner.visible-distance" : "Nametag visible distance"
+  "option.petowner.visible-distance" : "Nametag visible distance",
+  "option.petowner.click-on-owned" : "Show owner on click on owned pet"
 }

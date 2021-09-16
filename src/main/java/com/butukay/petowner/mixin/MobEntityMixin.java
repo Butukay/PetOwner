@@ -16,15 +16,10 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin extends LivingEntity {
@@ -48,7 +43,10 @@ public abstract class MobEntityMixin extends LivingEntity {
     @Inject(method = "interact", at = @At("HEAD"))
     public final void onInteract(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         if (PetOwner.getConfig().getUsageMode().equals(PetOwnerConfig.Mode.CLICK)) {
-            player.sendMessage(PetOwnerUtils.generateUsernameText(this), PetOwner.getConfig().isActionBar());
+            Text usernameText = PetOwnerUtils.generateUsernameText(this, player);
+            if (usernameText != null) {
+                player.sendMessage(usernameText, PetOwner.getConfig().isActionBar());
+            }
         }
     }
 

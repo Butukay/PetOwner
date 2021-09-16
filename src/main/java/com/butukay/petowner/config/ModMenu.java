@@ -58,6 +58,11 @@ public class ModMenu implements ModMenuApi {
                     .setSaveConsumer(newValue -> PetOwner.getConfig().setVisibleDistance(newValue))
                     .build());
 
+            settings.addEntry(entryBuilder.startBooleanToggle(new TranslatableText("option.petowner.click-on-owned"), PetOwner.getConfig().isClickOnOwnedPet())
+                    .setDefaultValue(true)
+                    .setSaveConsumer(newValue -> PetOwner.getConfig().setClickOnOwnedPet(newValue))
+                    .build());
+
             builder.setSavingRunnable(PetOwnerConfigUtil::saveConfig);
 
             return builder.build();

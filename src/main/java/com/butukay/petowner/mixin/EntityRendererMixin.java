@@ -3,9 +3,6 @@ package com.butukay.petowner.mixin;
 import com.butukay.petowner.PetOwner;
 import com.butukay.petowner.config.PetOwnerConfig;
 import com.butukay.petowner.utils.PetOwnerUtils;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.EntityRendererFactory;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,12 +17,9 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.Matrix4f;
 
-
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Mixin(EntityRenderer.class)
@@ -56,7 +50,7 @@ public abstract class EntityRendererMixin {
 
         if (ownerIds.isEmpty()) return;
 
-        Text text = PetOwnerUtils.generateUsernameText(entity);
+        Text text = PetOwnerUtils.generateUsernameText(entity, null);
 
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         @SuppressWarnings("rawtypes") EntityRenderer entityRenderer = (EntityRenderer) (Object) this;

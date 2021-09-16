@@ -8,6 +8,7 @@ public class PetOwnerConfig {
     private boolean showToggleMessage = true;
     private boolean rawUsername = false;
     private int visibleDistance = 16;
+    private boolean clickOnOwnedPet = false;
 
     public boolean isEnabled() {
         return enabled;
@@ -63,6 +64,14 @@ public class PetOwnerConfig {
 
     public void setVisibleDistance(int visibleDistance) {
         this.visibleDistance = visibleDistance;
+    }
+
+    public boolean isClickOnOwnedPet() {
+        return clickOnOwnedPet;
+    }
+
+    public void setClickOnOwnedPet(boolean clickOnOwnedPet) {
+        this.clickOnOwnedPet = clickOnOwnedPet;
     }
 
     public enum Mode {
